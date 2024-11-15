@@ -1,4 +1,7 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
@@ -53,8 +56,12 @@ public class SudokuFieldBuilder extends Frame {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 grid[i][j] = new JLabel();
+                grid[i][j].setText(testSudokuFieldMulti[i][j]);
                 grid[i][j].setBorder(new LineBorder(Color.BLACK));
                 grid[i][j].setOpaque(true);
+                Border border = grid[i][j].getBorder();
+                Border margin = new EmptyBorder(10,25,10,0);
+                grid[i][j].setBorder(new CompoundBorder(border, margin));
                 panel.add(grid[i][j]);
             }
         }
