@@ -1,4 +1,4 @@
-import javax.swing.*;
+package SudokuSolver;
 
 public class Main {
 

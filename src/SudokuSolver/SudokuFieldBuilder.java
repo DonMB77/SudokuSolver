@@ -1,3 +1,5 @@
+package SudokuSolver;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -8,21 +10,21 @@ import java.awt.*;
 public class SudokuFieldBuilder extends Frame {
 
     // Fields:
-    private String[][] testSudokuFieldMulti1 = {
-            {"9", "6", null, "7", "5", null, "2", null, null},
-            {null, "3", null, null, null, "2", null, null, null},
-            {null, "2", "8", null, null, "3", "6", null, "7"},
-            {null, "5", "9", "8", null, null, null, null, null},
-            {"1", null, "6", "2", null, "4", "9", null, "5"},
-            {null, null, "3", null, "6", null, "7", null, "4"},
-            {"3", "1", "7", null, null, "5", "4", null, "6"},
-            {"6", null, "5", null, null, null, "1", "3", "8"},
-            {null, "4", null, "3", "1", "6", null, null, null}
+    private int[][] testSudokuFieldMulti1 = {
+            {9, 6, 0, 7, 5, 0, 2, 0, 0},
+            {0, 3, 0, 0, 0, 2, 0, 0, 0},
+            {0, 2, 8, 0, 0, 3, 6, 0, 7},
+            {0, 5, 9, 8, 0, 0, 0, 0, 0},
+            {1, 0, 6, 2, 0, 4, 9, 0, 5},
+            {0, 0, 3, 0, 6, 0, 7, 0, 4},
+            {3, 1, 7, 0, 0, 5, 4, 0, 6},
+            {6, 0, 5, 0, 0, 0, 1, 3, 8},
+            {0, 4, 0, 3, 1, 6, 0, 0, 0}
     };
-    private JFrame jframe = new JFrame("Sudoku Solver");
+    private final JFrame jframe = new JFrame("Sudoku Solver");
     private JPanel panel = new JPanel();
-    private int row = 9;
-    private int col = 9;
+    private final int row = 9;
+    private final int col = 9;
     private JLabel[][] grid = new JLabel[row][col];
 
     // Constructors:
@@ -45,10 +47,10 @@ public class SudokuFieldBuilder extends Frame {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 grid[i][j] = new JLabel();
-                if (testSudokuFieldMulti1[i][j] == null) {
+                if (testSudokuFieldMulti1[i][j] == 0) {
                     grid[i][j].setText("");
                 } else {
-                    grid[i][j].setText(testSudokuFieldMulti1[i][j]);
+                    grid[i][j].setText(String.valueOf(testSudokuFieldMulti1[i][j]));
                 }
                 grid[i][j].setBorder(new LineBorder(Color.BLACK));
                 grid[i][j].setOpaque(true);
